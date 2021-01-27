@@ -5,7 +5,66 @@ var userId = 0;
 var firstName = "";
 var lastName = "";
 
-// restrict login text
+/*========================
+		LOGIN PAGE
+========================*/
+
+// EXECUTED ON LOAD
+document.addEventListener("DOMContentLoaded", function() {
+	$("#register-box").hide();
+});
+
+// LOGIN USERNAME
+$(function() {
+	$("input#login-username").on({
+		// When a new character was typed in
+		keydown: function(e) {
+			// 32 - ASCII for Space;
+			if (e.which === 32)
+				return false;
+		},
+		// When spaces managed to "sneak in" via copy/paste
+		change: function() {
+			// Regex-remove all spaces in the final value
+			this.value = this.value.replace(/\s/g, "");
+		}
+	})
+});
+
+// LOGIN PASSWORD
+$(function() {
+	$("input#login-password").on({
+		// When a new character was typed in
+		keydown: function(e) {
+			// 32 - ASCII for Space;
+			if (e.which === 32)
+				return false;
+		},
+		// When spaces managed to "sneak in" via copy/paste
+		change: function() {
+			// Regex-remove all spaces in the final value
+			this.value = this.value.replace(/\s/g, "");
+		}
+	})
+});
+
+// CHANGE TO REGISTER FORM
+function registerForm()
+{
+	$("#login-box").hide();
+	$("#register-box").show();
+}
+
+// CHANGE TO LOGIN FORM
+function loginForm()
+{
+	$("#register-box").hide();
+	$("#login-box").show();
+}
+
+/*========================
+		SHARED
+========================*/
 
 function doLogin()
 {

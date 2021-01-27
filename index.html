@@ -8,21 +8,31 @@
         <meta name="description" content="COP4331C Small Project Spring 2021 - Group 18">
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
         <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
         <script type="text/javascript" src="js/md5.js"></script>
         <script type="text/javascript" src="js/code.js"></script>
     </head>
     <body>
         <div class="container">
             <!-- Login/Register box -->
-            <section id="login">
+            <section class="form-box">
                 <div id="login-box">
-                    <div class="name"><strong class="name-not">Yes</strong><strong class="name-facebook">Facebook</strong></div>
-                    <input class="login-input input" id="login-username" type="text" placeholder="Username">
-                    <input class="login-input input" id="login-password" type="password" placeholder="Password">
+                    <div class="name"><strong class="name-not">Not</strong><strong class="name-facebook">Facebook</strong></div>
+                    <input id="login-username" class="input" type="text" placeholder="Username">
+                    <input id="login-password" class="input" type="password" placeholder="Password">
                     <button id="login-submit" type="submit">Log In</button>
-                    <div id="login-error-text"></div>
-                    <div id="login-register-text">Don't have an account? Don't worry! Register in less than 10 seconds!</div>
-                    <button id="login-register" type="button">Create a New Account</button>
+                    <div class="form-error-text" id="login-error"></div>
+                    <div class="form-text">Don't have an account? Don't worry! Register in less than 10 seconds!</div>
+                    <button id="login-register" type="button" onclick="registerForm()">Create a New Account</button>
+                </div>
+                <div id="register-box">
+                    <div class="name"><strong class="name-not">Not</strong><strong class="name-facebook">Facebook</strong></div>
+                    <input id="register-username" class="input" type="text" placeholder="Username">
+                    <input id="register-password" class="input" type="password" placeholder="Password">
+                    <input id="register-password-confirm" class="input" type="password" placeholder="Confirm Password">
+                    <button id="register-submit" type="submit">Register</button>
+                    <div class="form-error-text" id="register-error"></div>
+                    <div class="form-text">Already have an account? <a href="#" onclick="loginForm()">Log In</a></div>
                 </div>
             </section>
             <div></div>
@@ -31,16 +41,15 @@
                 <div id="testimonial-box">
                     <div id="testimonial-text">Your life. Your contacts.</div>
                     <div id="testimonial-description">
-                        Built by industry leading software developers, NotFacebook<sup>&reg;</sup> prides itself
+                        Built by industry leading Software Developers, NotFacebook<sup>&reg;</sup> prides itself
                         on delievering top notch quality, reliability, and user satisfaction.
                     </div>
                     <img id="testimonial-img" src="media/homepage-testimonial.jpeg">
-                    <div>INVEST IN DOGECOIN</div>
+                    <!--<div>
+                        "Best contact manager I've ever used! Easily a 10/10" - Mark Zuckerberg
+                    </div>-->
                 </div>
             </section>
         </div>
-
-        <!-- jQuery -->
-		<script src="js/jquery-3.5.1.min.js"></script>
     </body>
 </html>

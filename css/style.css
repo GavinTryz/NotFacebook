@@ -25,6 +25,10 @@ img
 	height: auto;
 }
 
+/*==========================
+		UNIVERSAL
+==========================*/
+
 .container
 {
 	width: 80%;
@@ -34,6 +38,21 @@ img
 	grid-template-columns: 30% 15% 55%;
 	align-content: center;
 }
+
+.input
+{
+	text-align: center;
+	color: #000000;
+	font-size: 20px;
+	padding: 12px;
+	margin: 12px 0px;
+	border-radius: 5px;
+	border: 1px solid var(--secondary-color);
+}
+
+/*==========================
+		WEBSITE NAME
+==========================*/
 
 .name
 {
@@ -52,10 +71,35 @@ img
 	color: var(--primary-color);
 }
 
-#login
+/*==========================
+	LOGIN/REGISTER FORMS
+==========================*/
+
+.form-box
 {
 	align-self: center;
 }
+
+.form-text
+{
+	color: #000000;
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+	padding: 8px;
+	margin: 12px 0px;
+}
+
+.form-error-text
+{
+	text-align: center;
+	color: #FF0000;
+	word-wrap: break-word;
+}
+
+/*==========================
+		LOGIN FORMS
+==========================*/
 
 #login-box
 {
@@ -67,15 +111,6 @@ img
 	border-radius: 20px;
 }
 
-.login-input
-{
-	text-align: center;
-	color: #000000;
-	font-size: 20px;
-	padding: 12px;
-	margin: 12px 0px;
-}
-
 #login-submit
 {
 	color: #FFFFFF;
@@ -84,22 +119,8 @@ img
 	font-weight: bold;
 	padding: 12px;
 	margin: 12px 0px;
-}
-
-#login-error-text
-{
-	text-align: center;
-	color: #FF0000;
-}
-
-#login-register-text
-{
-	color: #000000;
-	font-weight: bold;
-	font-size: 20px;
-	text-align: center;
-	padding: 8px;
-	margin: 12px 0px;
+	border-radius: 5px;
+	border: 1px solid var(--secondary-color);
 }
 
 #login-register
@@ -110,7 +131,39 @@ img
 	font-size: 20px;
 	padding: 28px;
 	margin: 12px 0px;
+	border-radius: 5px;
+	border: 1px solid var(--secondary-color);
 }
+
+/*==========================
+		REGISTER FORM
+==========================*/
+
+#register-box
+{
+	display: flex;
+	flex-direction: column;
+	background-color: #FFFFFF;
+	padding: 2em;
+	box-shadow: 10px 8px 10pt 2pt rgba(0,0,0,0.4);
+	border-radius: 20px;
+}
+
+#register-submit
+{
+	color: #FFFFFF;
+	background-color: #20B525;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 28px;
+	margin: 12px 0px;
+	border-radius: 5px;
+	border: 1px solid var(--secondary-color);
+}
+
+/*==========================
+		TESTIMONIAL
+==========================*/
 
 #testimonial-box
 {
@@ -127,10 +180,10 @@ img
 	line-height: 70px;
 
 	-webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
-		-moz-animation: fadein 3s; /* Firefox < 16 */
-		 -ms-animation: fadein 3s; /* Internet Explorer */
-		  -o-animation: fadein 3s; /* Opera < 12.1 */
-			  animation: fadein 3s;
+	-moz-animation: fadein 3s; /* Firefox < 16 */
+	-ms-animation: fadein 3s; /* Internet Explorer */
+	-o-animation: fadein 3s; /* Opera < 12.1 */
+	animation: fadein 3s;
 }
 
 #testimonial-description
@@ -139,11 +192,11 @@ img
 	padding: 10px;
 	text-align: center;
 
-	-webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
-		-moz-animation: fadein 3s; /* Firefox < 16 */
-		 -ms-animation: fadein 3s; /* Internet Explorer */
-		  -o-animation: fadein 3s; /* Opera < 12.1 */
-			  animation: fadein 3s;
+	-webkit-animation: fadein-medium 4s; /* Safari, Chrome and Opera > 12.1 */
+	-moz-animation: fadein-medium 4s; /* Firefox < 16 */
+	-ms-animation: fadein-medium 4s; /* Internet Explorer */
+	-o-animation: fadein-medium 4s; /* Opera < 12.1 */
+	animation: fadein-medium 4s;
 }
 
 #testimonial-img
@@ -152,18 +205,41 @@ img
 	margin: 10px 0px 10px 0px;
 	border-radius: 20px;
 
-	-webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
-		-moz-animation: fadein 3s; /* Firefox < 16 */
-		 -ms-animation: fadein 3s; /* Internet Explorer */
-		  -o-animation: fadein 3s; /* Opera < 12.1 */
-			  animation: fadein 3s;
+	-webkit-animation: fadein-long 5s; /* Safari, Chrome and Opera > 12.1 */
+	-moz-animation: fadein-long 5s; /* Firefox < 16 */
+	-ms-animation: fadein-long 5s; /* Internet Explorer */
+	-o-animation: fadein-long 5s; /* Opera < 12.1 */
+	animation: fadein-long 5s;
 }
 
-/* KEYFRAMES */
+/*==========================
+		KEYFRAMES
+==========================*/
+
 @keyframes fadein
 {
 	from { opacity: 0; }
 	to   { opacity: 1; }
+}
+
+@keyframes fadein-medium
+{
+	0% { opacity: 0; }
+	20% { opacity: 0; }
+	40% { opacity: 1; }
+	60% { opacity: 1; }
+	80% { opacity: 1; }
+	100% { opacity: 1; }
+}
+
+@keyframes fadein-long
+{
+	0% { opacity: 0; }
+	20% { opacity: 0; }
+	40% { opacity: 0; }
+	60% { opacity: 1; }
+	80% { opacity: 1; }
+	100% { opacity: 1; }
 }
 
 /* Firefox < 16 */
