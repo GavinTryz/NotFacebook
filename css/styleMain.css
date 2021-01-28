@@ -1,0 +1,160 @@
+body
+{
+	background-color: #00C2FF;
+}
+
+.not
+{
+	color: #000000;
+	font-size: 32px;
+}
+
+.facebook
+{
+	color: #00C2FF; /* blue */
+	margin-left: -4px;	
+	font-size: 32px;
+}
+
+.logo
+{
+	padding-top: 12px;
+	padding-bottom: 6px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-left: 20px;
+	background-color: #FFFFFF;
+	border-width: 3px !important;
+	border-color: #000000 !important;
+}
+
+.contact
+{
+	width: 500px;
+	background-color: white;
+	padding: 10px;
+	border-color: #000000 !important;
+	border-width: 3px !important;
+	margin-top: -100px;
+	border-radius: 20px;
+}
+
+.bottomtextmain
+{
+	background-color: #FFF;
+	margin-top: 80px;	
+}
+
+.bottomtextadd
+{
+	background-color: #FFF;
+	margin-top: 60px;	
+}
+
+
+.searchbar
+{
+	font-size: 24px;
+	border-color: #000000;
+	border-width: 2px;
+	border-radius: 20px;
+}
+
+.buttonadd
+{
+	border-width: 3px !important;
+	border-color: #000000 !important;
+	background-color: #20B525;
+	font-size: 32px;
+	margin-top: 80px;
+	border-radius: 20px;
+/*	margin-left: -70px; */
+}
+
+.searching
+{
+	background-color: #000;
+	position: absolute;
+}
+
+.glassImage
+{
+	margin-top: 95px;
+	border: 3px solid #000;
+
+}
+
+.received
+{
+	border: 3px solid #000;	
+	padding: 20px;
+	background-color: #FFF;
+	border-radius: 15px;
+	max-height: 400px;
+	overflow-y: scroll;
+}
+
+.receivedbox
+{
+	border: 3px solid #000;
+	font-size: 24px;
+	max-width: 1200px;	
+}
+
+.firstnameinput
+{
+	border-radius: 20px;
+	border: 1px solid #000;
+}
+
+.lastnameinput
+{
+	border-radius: 20px;
+	border: 1px solid #000;
+}
+
+.emailinput
+{
+	border-radius: 20px;
+	border: 1px solid #000;
+}
+
+.phoneinput
+{
+	border-radius: 20px;
+	border: 1px solid #000;
+}
+
+.addimage
+{
+	border-radius: 20px;
+	border: 2px solid #000;	
+}
+
+.backtomain
+{
+	margin-top: 80px;
+	font-size: 35px;
+	border: 2px solid #000;	
+	border-radius: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: grey;
+}
+
+.createcontactbutton
+{
+	border: 2px solid #000;	
+	border-radius: 20px;
+	font-size: 20px;
+	background-color: #20B525;
+}
+
+.logout
+{
+	border: 2px solid #000;	
+	border-radius: 20px;
+	margin-top: 25px;
+	margin-right: -20px; 
+}
+
