@@ -161,3 +161,85 @@ function doLogout()
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 	window.location.href = "index.html";
 }
+
+
+/*========================
+		SEARCH PAGE
+========================*/
+
+function doCreateAcc()
+{
+	var firstName = document.getElementById("firstName").value;
+	var lastName = document.getElementById("lastName").value;
+	var email = document.getElementById("email").value;
+	var phoneNumber = document.getElementById("phoneNumber").value;
+
+	document.getElementById("accountAddResult").innerHTML = "";
+
+	var jsonPayload = '{"firstName" : "' + firstName + '", "lastName" : ' + lastName + '", "email" : ' + email + '", "phoneNumber" : '+ phoneNumber + '}';
+	var url = urlBase + 'AddAccount.' + extension; 
+
+	var xhr = new XMLHttpRequest();
+
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState == 4 && this.status == 200)
+			{
+				document.getElementById("accountAddResult").innerHTML = "Account has been added";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("accountAddResult").innerHTML = err.message;
+	}
+}
+
+
+function searchAccount()
+{
+	var srch = document.getElementById("contactSearch").value;
+	document.getElementById("foundContacts").innerHTML = "";
+
+	var accountList = "";
+
+	var jsonPayload = '{"search" : "' + srch + '", " userId" : ' + userId + '}';
+	var url = urlBase + '/searchAccount.' + extension;
+
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState == 4 && this.status == 200)
+			{
+				document.getElementById("foundContacts").innerHTML = "Account(s) have been retrieved";
+				var jsonObject = JSON.parse(xhr.responseText);
+
+				for (var i = 0; i < jsonObject.results.length; i++)
+				{
+					accountList += jsonObject.results[i];
+					if (i < jsonObject.results.length - 1)
+					{
+						accountList += "<br />\r\n"
+					}
+				}
+				document.getElementsByTagName("p")[0].innerHTML = accountList;
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("foundContacts").innerHTML = err.message;
+	}
+}
