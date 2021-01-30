@@ -3,8 +3,6 @@
 	$inData = getRequestInfo();
 	
 	$id = 0;
-	$firstName = "";
-	$lastName = "";
 
 	$conn = new mysqli("localhost", "API", "123NotPassword", "MASTER");
 	if ($conn->connect_error) 
@@ -27,7 +25,7 @@
             }
             else
             {
-                returnWithError("Username not found");
+                returnWithError("Password incorrect");
             }
 			
 		}
@@ -55,7 +53,7 @@
 		sendResultInfoAsJson( $retValue );
 	}
 	
-	function returnWithInfo( $firstName, $lastName, $id )
+	function returnWithInfo( $id )
 	{
 		$retValue = '{"id":' . $id . '","error":""}';
 		sendResultInfoAsJson( $retValue );
