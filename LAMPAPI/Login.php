@@ -15,7 +15,7 @@
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0)
 		{
-            $sql = "SELECT ID FROM USERS where USERNAME='" . $inData["username"] . "' and Password='" . $inData["password"] . "'";
+            $sql = "SELECT ID FROM USERS where USERNAME='" . $inData["username"] . "' and PASSWORD='" . $inData["password"] . "'";
             $result = $conn->query($sql);
             if ($result->num_rows > 0)
             {
@@ -28,11 +28,10 @@
             {
                 returnWithError("Password incorrect");
             }
-			
 		}
 		else
 		{
-			returnWithError("Username not found");
+			returnWithError("Username does not exist");
 		}
 		$conn->close();
 	}
@@ -56,7 +55,7 @@
 	
 	function returnWithInfo( $id )
 	{
-		$retValue = '{"id":' . $id . '","error":""}';
+		$retValue = '{"id":"' . $id . '","error":""}';
 		sendResultInfoAsJson( $retValue );
 	}
 	
