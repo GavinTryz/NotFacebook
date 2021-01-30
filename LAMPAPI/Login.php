@@ -6,7 +6,7 @@
 	$firstName = "";
 	$lastName = "";
 
-	$conn = new mysqli("localhost", "'root'@'localhost'", "mysqlpass", "MASTER");
+	$conn = new mysqli("localhost", "API", "123NotPassword", "MASTER");
 	if ($conn->connect_error) 
 	{
 		returnWithError( $conn->connect_error );
