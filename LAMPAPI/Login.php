@@ -1,11 +1,16 @@
 <?php
 
-	$inData = getRequestInfo();
-	
+    /**
+     * @var $conn
+     */
+
+    include('config/db_connect.php');
+
+    $inData = getRequestInfo();
 	$id = 0;
 
-	$conn = new mysqli("localhost", "API", "123NotPassword", "MASTER");
-	if ($conn->connect_error) 
+
+	if ($conn->connect_error)
 	{
 		returnWithError( $conn->connect_error );
 	} 
