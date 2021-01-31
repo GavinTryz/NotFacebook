@@ -260,8 +260,7 @@ function readCookie()
 	
 	if (userId < 0)
 	{
-		if (window.location.href != "index.html")
-			window.location.href = "index.html";
+		// TODO
 	}
 	else
 	{
