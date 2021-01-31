@@ -10,6 +10,7 @@ var username = "";
 
 // EXECUTED ON LOAD
 document.addEventListener("DOMContentLoaded", function() {
+	readCookie();
 	$("#register-box").hide();
 });
 
@@ -142,7 +143,7 @@ function saveCookie()
 	var minutes = 20;
 	var date = new Date();
 	date.setTime(date.getTime()+(minutes*60*1000));	
-	document.cookie = "userId=" + userId + ",username=" + username + ";expires=" + date.toGMTString();
+	document.cookie = "username=" + username + ",userId=" + userId + ";expires=" + date.toGMTString();
 }
 
 /*========================
