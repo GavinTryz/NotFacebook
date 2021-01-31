@@ -267,6 +267,9 @@ function readCookie()
 	}
 	else
 	{
+		if (window.location.href == "http://f4c3b00k.xyz/index.html" || window.location.href == "http://f4c3b00k.xyz/index.html/#")
+			window.location.href = "main.html";
+		
 		// WILL HAVE TO BE DONE BY MATHEUS
 		//document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
 	}
