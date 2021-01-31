@@ -260,11 +260,13 @@ function readCookie()
 	
 	if (userId < 0)
 	{
-		// TODO
+		if (window.location.pathname == "index.html" || window.location.pathname == "index.html/#")
+			return;
+		
+		window.location.href = "index.html";
 	}
 	else
 	{
-		window.location.href = "main.html";
 		// WILL HAVE TO BE DONE BY MATHEUS
 		//document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
 	}
