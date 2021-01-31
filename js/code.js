@@ -260,7 +260,7 @@ function readCookie()
 	
 	if (userId < 0)
 	{
-		if (window.location.pathname == "index.html" || window.location.pathname == "index.html/#")
+		if (window.location.href == "http://f4c3b00k.xyz/index.html" || window.location.href == "http://f4c3b00k.xyz/index.html/#")
 			return;
 		
 		window.location.href = "index.html";
