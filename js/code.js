@@ -1,21 +1,22 @@
-var urlBase = 'http://COP4331-5.com/LAMPAPI';
+var urlBase = 'http://f4c3b00k.xyz/LAMPAPI';
 var extension = 'php';
 
 var userId = 0;
-var firstName = "";
-var lastName = "";
+var username = "";
 
 /*========================
-		LOGIN PAGE
+		FRONT PAGE
 ========================*/
 
 // EXECUTED ON LOAD
 document.addEventListener("DOMContentLoaded", function() {
+	readCookie();
 	$("#register-box").hide();
 });
 
-// LOGIN USERNAME
+// CLEANSE INPUT
 $(function() {
+	// Login Username
 	$("input#login-username").on({
 		// When a new character was typed in
 		keydown: function(e) {
@@ -29,20 +30,47 @@ $(function() {
 			this.value = this.value.replace(/\s/g, "");
 		}
 	})
-});
 
-// LOGIN PASSWORD
-$(function() {
-	$("input#login-password").on({
-		// When a new character was typed in
+	// Register Username
+	$("input#register-username").on({
 		keydown: function(e) {
-			// 32 - ASCII for Space;
 			if (e.which === 32)
 				return false;
 		},
-		// When spaces managed to "sneak in" via copy/paste
 		change: function() {
-			// Regex-remove all spaces in the final value
+			this.value = this.value.replace(/\s/g, "");
+		}
+	})
+
+	// Login Password
+	$("input#login-password").on({
+		keydown: function(e) {
+			if (e.which === 32)
+				return false;
+		},
+		change: function() {
+			this.value = this.value.replace(/\s/g, "");
+		}
+	})
+
+	// Register Password
+	$("input#register-password").on({
+		keydown: function(e) {
+			if (e.which === 32)
+				return false;
+		},
+		change: function() {
+			this.value = this.value.replace(/\s/g, "");
+		}
+	})
+
+	// Register Password Confirmation
+	$("input#register-password-confirm").on({
+		keydown: function(e) {
+			if (e.which === 32)
+				return false;
+		},
+		change: function() {
 			this.value = this.value.replace(/\s/g, "");
 		}
 	})
@@ -63,51 +91,49 @@ function loginForm()
 }
 
 /*========================
-		SHARED
+		LOGIN
 ========================*/
 
 function doLogin()
 {
 	userId = 0;
-	firstName = "";
-	lastName = "";
 	
-	var login = document.getElementById("loginName").value;
-	var password = document.getElementById("loginPassword").value;
-	var hash = md5( password );
+	// Get username and password from HTML.
+	var login = document.getElementById("login-username").value;
+	var password = document.getElementById("login-password").value;
+	//password = md5(password);
 	
-	document.getElementById("login-error-text").innerHTML = "";
+	document.getElementById("login-error").innerHTML = "";
 
-	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
+	// Format the payload and set up the connection.
+	var jsonPayload = '{"username" : "' + login + '", "password" : "' + password + '"}';
 	var url = urlBase + '/Login.' + extension;
-
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
 	try
 	{
+		// Send and recieve the payload.
 		xhr.send(jsonPayload);
-		
-		var jsonObject = JSON.parse( xhr.responseText );
+		var jsonObject = JSON.parse(xhr.responseText);
 		
 		userId = jsonObject.id;
-		
-		if( userId < 1 )
+		if (userId < 1)
 		{
-			document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+			document.getElementById("login-error").innerHTML = jsonObject.error;
 			return;
 		}
 		
-		firstName = jsonObject.firstName;
-		lastName = jsonObject.lastName;
+		username = login;
 
 		saveCookie();
 	
-		window.location.href = "color.html";
+		window.location.href = "main.html";
 	}
 	catch(err)
 	{
-		document.getElementById("loginResult").innerHTML = err.message;
+		document.getElementById("login-error").innerHTML = err.message;
 	}
 
 }
@@ -117,7 +143,7 @@ function saveCookie()
 	var minutes = 20;
 	var date = new Date();
 	date.setTime(date.getTime()+(minutes*60*1000));	
-	document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
+	document.cookie = "username=" + username + ",userId=" + userId + ";expires=" + date.toGMTString();
 }
 
 /*========================
@@ -204,9 +230,8 @@ function searchAccount()
 function doLogout()
 {
 	userId = 0;
-	firstName = "";
-	lastName = "";
-	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+	username = "";
+	document.cookie = "username= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 	window.location.href = "index.html";
 }
 
@@ -223,26 +248,24 @@ function readCookie()
 	{
 		var thisOne = splits[i].trim();
 		var tokens = thisOne.split("=");
-		if( tokens[0] == "firstName" )
+		if (tokens[0] == "username")
 		{
-			firstName = tokens[1];
+			username = tokens[1];
 		}
-		else if( tokens[0] == "lastName" )
+		else if (tokens[0] == "userId")
 		{
-			lastName = tokens[1];
-		}
-		else if( tokens[0] == "userId" )
-		{
-			userId = parseInt( tokens[1].trim() );
+			userId = parseInt(tokens[1].trim());
 		}
 	}
 	
-	if( userId < 0 )
+	if (userId < 0)
 	{
 		window.location.href = "index.html";
 	}
 	else
 	{
-		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
+		window.location.href = "main.html";
+		// WILL HAVE TO BE DONE BY MATHEUS
+		//document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
 	}
 }
