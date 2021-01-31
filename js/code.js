@@ -118,7 +118,7 @@ function doLogin()
 		var jsonObject = JSON.parse(xhr.responseText);
 		
 		userId = jsonObject.id;
-		if( userId < 1 )
+		if (userId < 1)
 		{
 			document.getElementById("login-error").innerHTML = jsonObject.error;
 			return;
@@ -263,6 +263,7 @@ function readCookie()
 	}
 	else
 	{
+		window.location.href = "main.html";
 		// WILL HAVE TO BE DONE BY MATHEUS
 		//document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
 	}
