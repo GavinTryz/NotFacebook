@@ -11,6 +11,11 @@
         <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
         <script type="text/javascript" src="js/md5.js"></script>
         <script type="text/javascript" src="js/code.js"></script>
+        <script>
+            if (readCookie() !== null) {
+                window.location.href = "main.html";
+            }
+        </script>
     </head>
     <body>
         <div class="container">
@@ -45,9 +50,6 @@
                         on delievering top notch quality, reliability, and user satisfaction.
                     </div>
                     <img id="testimonial-img" src="media/homepage-testimonial.jpeg">
-                    <!--<div>
-                        "Best contact manager I've ever used! Easily a 10/10" - Mark Zuckerberg
-                    </div>-->
                 </div>
             </section>
         </div>

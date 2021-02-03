@@ -10,7 +10,6 @@ var username = "";
 
 // EXECUTED ON LOAD
 document.addEventListener("DOMContentLoaded", function() {
-	readCookie();
 	$("#register-box").hide();
 });
 
@@ -20,6 +19,10 @@ $(function() {
 	$("input#login-username").on({
 		// When a new character was typed in
 		keydown: function(e) {
+			// 13 - ASCII for ENTER
+			if (e.which === 13)
+				return document.getElementById("login-submit").click();
+
 			// 32 - ASCII for Space;
 			if (e.which === 32)
 				return false;
@@ -34,6 +37,9 @@ $(function() {
 	// Register Username
 	$("input#register-username").on({
 		keydown: function(e) {
+			if (e.which === 13)
+				document.getElementById("register-submit").click();
+
 			if (e.which === 32)
 				return false;
 		},
@@ -45,6 +51,9 @@ $(function() {
 	// Login Password
 	$("input#login-password").on({
 		keydown: function(e) {
+			if (e.which === 13)
+				document.getElementById("login-submit").click();
+
 			if (e.which === 32)
 				return false;
 		},
@@ -56,6 +65,9 @@ $(function() {
 	// Register Password
 	$("input#register-password").on({
 		keydown: function(e) {
+			if (e.which === 13)
+				document.getElementById("register-submit").click();
+
 			if (e.which === 32)
 				return false;
 		},
@@ -67,6 +79,9 @@ $(function() {
 	// Register Password Confirmation
 	$("input#register-password-confirm").on({
 		keydown: function(e) {
+			if (e.which === 13)
+				document.getElementById("register-submit").click();
+
 			if (e.which === 32)
 				return false;
 		},
@@ -244,6 +259,7 @@ function readCookie()
 	userId = -1;
 	var data = document.cookie;
 	var splits = data.split(",");
+
 	for(var i = 0; i < splits.length; i++) 
 	{
 		var thisOne = splits[i].trim();
@@ -260,17 +276,13 @@ function readCookie()
 	
 	if (userId < 0)
 	{
-		if (window.location.href == "http://f4c3b00k.xyz/index.html" || window.location.href == "http://f4c3b00k.xyz/index.html/#")
-			return;
-		
-		window.location.href = "index.html";
+		return null;
 	}
 	else
 	{
-		if (window.location.href == "http://f4c3b00k.xyz/index.html" || window.location.href == "http://f4c3b00k.xyz/index.html/#" || window.location.href == "http://f4c3b00k.xyz/")
-			window.location.href = "main.html";
-		
-		// WILL HAVE TO BE DONE BY MATHEUS
+		// Change elements on a page to correspond to the logged-in user.
 		//document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
 	}
+
+	return userId;
 }
