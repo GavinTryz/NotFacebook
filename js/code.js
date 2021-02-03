@@ -19,6 +19,10 @@ $(function() {
 	$("input#login-username").on({
 		// When a new character was typed in
 		keydown: function(e) {
+			// 13 - ASCII for ENTER
+			if (e.which === 13)
+				return document.getElementById("login-submit").click();
+
 			// 32 - ASCII for Space;
 			if (e.which === 32)
 				return false;
@@ -33,6 +37,9 @@ $(function() {
 	// Register Username
 	$("input#register-username").on({
 		keydown: function(e) {
+			if (e.which === 13)
+				document.getElementById("register-submit").click();
+
 			if (e.which === 32)
 				return false;
 		},
@@ -44,6 +51,9 @@ $(function() {
 	// Login Password
 	$("input#login-password").on({
 		keydown: function(e) {
+			if (e.which === 13)
+				document.getElementById("login-submit").click();
+
 			if (e.which === 32)
 				return false;
 		},
@@ -55,6 +65,9 @@ $(function() {
 	// Register Password
 	$("input#register-password").on({
 		keydown: function(e) {
+			if (e.which === 13)
+				document.getElementById("register-submit").click();
+
 			if (e.which === 32)
 				return false;
 		},
@@ -66,6 +79,9 @@ $(function() {
 	// Register Password Confirmation
 	$("input#register-password-confirm").on({
 		keydown: function(e) {
+			if (e.which === 13)
+				document.getElementById("register-submit").click();
+
 			if (e.which === 32)
 				return false;
 		},
