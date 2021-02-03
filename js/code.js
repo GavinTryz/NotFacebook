@@ -10,7 +10,6 @@ var username = "";
 
 // EXECUTED ON LOAD
 document.addEventListener("DOMContentLoaded", function() {
-	readCookie();
 	$("#register-box").hide();
 });
 
