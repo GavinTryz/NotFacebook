@@ -13,7 +13,6 @@
     include('config/db_connect.php');
 
     //create contact fields
-    $firstname = $lastname = $email = $phone = $userid = '';
     if ($conn->connect_error)
     {
         returnWithError( $conn->connect_error );
@@ -24,6 +23,8 @@
             VALUES('$firstname', '$lastname', '$email', '$phone', '$userId')";
         //save to DB
         if (mysqli_query($conn, $sql)) {
+            //close connection to the DB
+            mysqli_close($conn);
             //if successful, redirect user to home page.
             header('Location: index.html');
         } else {

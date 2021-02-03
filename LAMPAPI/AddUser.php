@@ -28,10 +28,11 @@
                 VALUES('$username','$password')";
             //save to DB
             if (mysqli_query($conn, $sql_u_add)) {
+                //close connection to the DB
+                mysqli_close($conn);
                 //if successful, redirect user to home page.
                 header('Location: index.html');
             } else {
-                //todo GAVIN UR STRING
                 $sql_error =  'Query Error: ' . mysqli_error($conn);
             }
         }

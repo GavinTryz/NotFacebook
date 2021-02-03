@@ -1,4 +1,7 @@
 <?php
+/**
+ * @var $conn
+ */
 $conn = new mysqli("localhost", "API", "123NotPassword", "MASTER");
 
 if(!$conn){

@@ -38,7 +38,8 @@
 		{
 			returnWithError("Username does not exist");
 		}
-		$conn->close();
+        //close connection to the DB
+        mysqli_close($conn);
 	}
 	
 	function getRequestInfo()
