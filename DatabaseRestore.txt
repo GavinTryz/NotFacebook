@@ -1,4 +1,4 @@
-# Create database:
+# Create database and tables:
 CREATE DATABASE MASTER;
 
 USE MASTER;
@@ -13,3 +13,7 @@ insert into USERS (Username,Password) VALUES ('JohnDoe','password');
 # Add test contact: (contact belongs to JohnDoe, presuming his ID is 1)
 insert into CONTACTS (FIRSTNAME, LASTNAME, EMAIL, PHONE, USERID) VALUES ('Mister', 'ExampleContact', 'mrcontact@notfacebook.org', '4075555555', '1');
 insert into CONTACTS (FIRSTNAME, LASTNAME, EMAIL, PHONE, USERID) VALUES ('Miss', 'ExampleContact', 'misscontact@aol.com', '4076666666', '1');
+
+# Add user for API
+create user 'API'@'%' identified by '123NotPassword';
+grant all privileges on MASTER.* to 'API'@'%';
