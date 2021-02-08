@@ -15,7 +15,8 @@
     {
         // todo Check for duplicate
         // todo Confirm password
-        $sql = "insert into USERS (USERNAME, PASSWORD) values ('" . $newUsername . "', '" . $newPassword . "')";
+        $sql = "insert into USERS(USERNAME, PASSWORD) values ('$newUsername','$newPassword')";
+        //$sql = "insert into USERS (USERNAME, PASSWORD) values ('" . $newUsername . "', '" . $newPassword . "')";
         if($result = $conn->query($sql) != TRUE)
         {
             returnWithError($conn->error);
@@ -24,8 +25,23 @@
     }
     returnWithError(""); // Return with empty error, to signal account creation successful
 
+    function getRequestInfo()
+	{
+		return json_decode(file_get_contents('php://input'), true);
+	}
 
-    
+    function sendResultInfoAsJson( $obj )
+	{
+		header('Content-type: application/json');
+		echo $obj;
+	}
+	
+	function returnWithError($err)
+	{
+		$retValue = '{"error":"' . $err . '"}';
+		sendResultInfoAsJson($retValue);
+	}
+
     /*
     //check if username already exists
     if ($conn->connect_error)

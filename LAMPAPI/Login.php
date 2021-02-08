@@ -1,16 +1,11 @@
 <?php
 
-    /**
-     * @var $conn
-     */
-
-    include('config/db_connect.php');
-
-    $inData = getRequestInfo();
+	$inData = getRequestInfo();
+	
 	$id = 0;
 
-
-	if ($conn->connect_error)
+	$conn = new mysqli("localhost", "API", "123NotPassword", "MASTER");
+	if ($conn->connect_error) 
 	{
 		returnWithError( $conn->connect_error );
 	} 
@@ -38,8 +33,7 @@
 		{
 			returnWithError("Username does not exist");
 		}
-        //close connection to the DB
-        mysqli_close($conn);
+		$conn->close();
 	}
 	
 	function getRequestInfo()
