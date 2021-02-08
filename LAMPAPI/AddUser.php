@@ -24,8 +24,17 @@
     }
     returnWithError(""); // Return with empty error, to signal account creation successful
 
+    function getRequestInfo()
+	{
+		return json_decode(file_get_contents('php://input'), true);
+	}
+	
+	function returnWithError($err)
+	{
+		$retValue = '{"error":"' . $err . '"}';
+		sendResultInfoAsJson($retValue);
+	}
 
-    
     /*
     //check if username already exists
     if ($conn->connect_error)
