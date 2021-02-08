@@ -7,10 +7,15 @@
         <meta name="author" content="Group 18">
         <meta name="description" content="COP4331C Small Project Spring 2021 - Group 18">
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style-login.css">
         <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
         <script type="text/javascript" src="js/md5.js"></script>
         <script type="text/javascript" src="js/code.js"></script>
+        <script>
+            if (readCookie() !== null) {
+                window.location.href = "main.html";
+            }
+        </script>
     </head>
     <body>
         <div class="container">
@@ -20,7 +25,7 @@
                     <div class="name"><strong class="name-not">Not</strong><strong class="name-facebook">Facebook</strong></div>
                     <input id="login-username" class="input" type="text" placeholder="Username">
                     <input id="login-password" class="input" type="password" placeholder="Password">
-                    <button id="login-submit" type="submit">Log In</button>
+                    <button id="login-submit" type="submit" onclick="doLogin()">Log In</button>
                     <div class="form-error-text" id="login-error"></div>
                     <div class="form-text">Don't have an account? Don't worry! Register in less than 10 seconds!</div>
                     <button id="login-register" type="button" onclick="registerForm()">Create a New Account</button>
@@ -45,9 +50,6 @@
                         on delievering top notch quality, reliability, and user satisfaction.
                     </div>
                     <img id="testimonial-img" src="media/homepage-testimonial.jpeg">
-                    <!--<div>
-                        "Best contact manager I've ever used! Easily a 10/10" - Mark Zuckerberg
-                    </div>-->
                 </div>
             </section>
         </div>
