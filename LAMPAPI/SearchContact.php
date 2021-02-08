@@ -11,7 +11,7 @@
     }
     else
     {
-        // Search through first and last names that belong to the user. Parentesis for unambiguity!
+        // Search through first and last names that belong to the user. Parenthesis for unambiguity!
         $sql = "select * from CONTACTS where (FIRSTNAME like '%" . $inData["search"] . "%' or LASTNAME like '%" . $inData["search"] . "%') and USERID=" . $inData["id"];
         $result = $conn->query($sql);
         if ($result->num_rows > 0)
