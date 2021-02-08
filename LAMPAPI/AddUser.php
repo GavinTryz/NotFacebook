@@ -15,7 +15,8 @@
     {
         // todo Check for duplicate
         // todo Confirm password
-        $sql = "insert into USERS (USERNAME, PASSWORD) values ('" . $newUsername . "', '" . $newPassword . "')";
+        $sql = "insert into USERS(USERNAME, PASSWORD) values ('$newUsername','$newPassword')";
+        //$sql = "insert into USERS (USERNAME, PASSWORD) values ('" . $newUsername . "', '" . $newPassword . "')";
         if($result = $conn->query($sql) != TRUE)
         {
             returnWithError($conn->error);
@@ -27,6 +28,12 @@
     function getRequestInfo()
 	{
 		return json_decode(file_get_contents('php://input'), true);
+	}
+
+    function sendResultInfoAsJson( $obj )
+	{
+		header('Content-type: application/json');
+		echo $obj;
 	}
 	
 	function returnWithError($err)
