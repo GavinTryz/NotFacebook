@@ -1,6 +1,6 @@
 <?php
     $inData = getRequestInfo();
-    $usedId = $inData["id"];
+    $userId = $inData["id"];
     $contactId = $inData["contactId"];
 
     $conn = new mysqli("localhost", "API", "123NotPassword", "MASTER");
