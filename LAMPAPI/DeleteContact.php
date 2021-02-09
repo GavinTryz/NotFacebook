@@ -1,30 +1,37 @@
 <?php
-/**
- * @var $conn
- */
+    $inData = getRequestInfo();
+    $usedId = $inData["id"];
+    $contactId = $inData["contactId"];
 
-$inData = getRequestInfo();
-//get first and last name of contact we want to delete.
-$firstname = $inData["firstname"];
-$lastname = $inData["lastname"];
-//connect to DB
-include('config/db_connect.php');
-
-//check our connection to the DB
-if ($conn->connect_error)
-{
-    returnWithError( $conn->connect_error );
-}
-else {
-    //delete contact sql script
-    $sql = "DELETE FROM CONTACTS WHERE FIRSTNAME = '$firstname' AND LASTNAME = '$lastname'";
-    //execute deletion
-    if (mysqli_query($conn, $sql)) {\
-        //close connection to the DB
-        mysqli_close($conn);
-        //if successful, redirect user to home page.
-        header('Location: index.html');
-    } else {
-        echo 'Query Error: ' . mysqli_error($conn);
+    $conn = new mysqli("localhost", "API", "123NotPassword", "MASTER");
+	if ($conn->connect_error) 
+	{
+		returnWithError( $conn->connect_error );
+	}
+    else
+    {
+        $sql = "delete from CONTACTS where USERID = '$userId' and ID = '$contactId'";
+        if($result = $conn->query($sql) != TRUE)
+        {
+            returnWithError($conn->error);
+        }
+        $conn->close();
     }
-}
+    returnWithError("");
+
+    function getRequestInfo()
+	{
+		return json_decode(file_get_contents('php://input'), true);
+	}
+
+	function sendResultInfoAsJson( $obj )
+	{
+		header('Content-type: application/json');
+		echo $obj;
+	}
+	
+	function returnWithError( $err )
+	{
+		$retValue = '{"error":"' . $err . '"}';
+		sendResultInfoAsJson( $retValue );
+	}

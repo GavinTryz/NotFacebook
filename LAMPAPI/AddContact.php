@@ -1,33 +1,42 @@
 <?php
-/**
- * @var $conn
- */
-
     $inData = getRequestInfo();
 
-    $firstname = $inData["firstname"];
-    $lastname = $inData["lastname"];
-    $email = $inData["email"];
-    $phone = $inData["phone"];
-    $userId = $inData["userId"];
-    include('config/db_connect.php');
+    $userId = $inData["id"];
+    $contactFirstName = $inData["contactFirstName"];
+    $contactLastName = $inData["contactLastName"];
+    $contactLastName = $inData["contactLastName"];
+    $contactEmail = $inData["contactEmail"];
+    $contactPhone = $inData["contactPhone"];
 
-    //create contact fields
-    if ($conn->connect_error)
+    $conn = new mysqli("localhost", "API", "123NotPassword", "MASTER");
+    if($conn->connect_error)
     {
-        returnWithError( $conn->connect_error );
+        returnWithError($conn->error);
     }
-    else {
-        //add contact
-        $sql = "INSERT INTO CONTACTS(FIRSTNAME, LASTNAME, EMAIL, PHONE,USERID) 
-            VALUES('$firstname', '$lastname', '$email', '$phone', '$userId')";
-        //save to DB
-        if (mysqli_query($conn, $sql)) {
-            //close connection to the DB
-            mysqli_close($conn);
-            //if successful, redirect user to home page.
-            header('Location: index.html');
-        } else {
-            echo 'Query Error: ' . mysqli_error($conn);
+    else
+    {
+        $sql = "insert into CONTACTS (FIRSTNAME, LASTNAME, EMAIL, PHONE, USERID) VALUES ('$contactFirstName', '$contactLastName', '$contactEmail', '$contactPhone', '$userId')";
+        if($result = $conn->query($sql) != TRUE)
+        {
+            returnWithError($conn->error);
         }
+        $conn->close();
     }
+    returnWithError(""); // Return with empty error, to signal contact addition successful
+
+    function getRequestInfo()
+	{
+		return json_decode(file_get_contents('php://input'), true);
+	}
+
+	function sendResultInfoAsJson( $obj )
+	{
+		header('Content-type: application/json');
+		echo $obj;
+	}
+	
+	function returnWithError( $err )
+	{
+		$retValue = '{"error":"' . $err . '"}';
+		sendResultInfoAsJson( $retValue );
+	}
