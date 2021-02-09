@@ -66,7 +66,7 @@
 	
 	function returnWithError( $err )
 	{
-		$retValue = '{"resultCount":0, "results":"[]", "error":"' . $err . '"}';
+		$retValue = '{"resultCount":0, "results":[], "error":"' . $err . '"}';
 		sendResultInfoAsJson( $retValue );
 	}
 	

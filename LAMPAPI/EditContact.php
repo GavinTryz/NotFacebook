@@ -2,6 +2,7 @@
     $inData = getRequestInfo();
 
     $userId = $inData["id"];
+    $contactId = $inData["contactId"];
     $contactFirstName = $inData["contactFirstName"];
     $contactLastName = $inData["contactLastName"];
     $contactLastName = $inData["contactLastName"];
@@ -15,7 +16,8 @@
     }
     else
     {
-        $sql = "insert into CONTACTS (FIRSTNAME, LASTNAME, EMAIL, PHONE, USERID) VALUES ('$contactFirstName', '$contactLastName', '$contactEmail', '$contactPhone', '$userId')";
+        $sql = "update CONTACTS set FIRSTNAME = '$contactFirstName', LASTNAME = '$contactLastName', EMAIL = '$contactEmail', PHONE = '$contactPhone' where (ID = '$contactId' and USERID = $userId)";
+
         if($result = $conn->query($sql) != TRUE)
         {
             returnWithError($conn->error);
