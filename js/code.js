@@ -1,4 +1,4 @@
-var urlBase = 'http://f4c3b00k.xyz/LAMPAPI';
+var urlBase = 'http://157.245.248.114/LAMPAPI';
 var extension = 'php';
 
 var userId = 0;
