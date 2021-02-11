@@ -195,7 +195,6 @@ function doRegister()
 		}
 
 		// Set fields.
-		loginForm();
 		document.getElementById("login-username").value = login;
 		document.getElementById("login-password").value = tempPass;
 		doLogin();
