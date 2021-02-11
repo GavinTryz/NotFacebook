@@ -16,7 +16,7 @@
       }
     </script>
   </head>
-  <body>
+  <body onload="hideEdit()">
     <!-- Creates logo border -->
     <div class="mt-4">
       <span class="border logo">
@@ -25,7 +25,7 @@
       </span>
     </div>
     <!-- Search for a contact -->
-    <div class="container">
+    <div class="container"">
       <div class="row">
         <div class = "col md-5">
           <div class="form-group pt-5 pb-5 mb-5">
@@ -36,7 +36,7 @@
           </div>
         </div>  
         <div class="col">
-          <input type="image" src="media/glass.jpg" height="40px" class="glassImage" onclick="searchAccount()">
+          <input type="image" id="contactSearchButton" src="media/glass.jpg" height="40px" class="glassImage" onclick="searchAccount()">
         </div>
         <div class="col-md-4">
           <button type="button" class="btn btn-success buttonadd" onclick=window.location.href="addContact.html">Click here to add an account</button>
@@ -46,15 +46,51 @@
         </div>
       </div>
     </div>
-    <div class="container mt-4">
+    <div class="container mt-4 receivedform">
       <label for="contactFound">
         <h3>Found contacts:</h3>
     </label>
     </div>
     <div class="container received">
-      <input type="ContactAppear" class="form-control mt-2 receivedbox" id="foundContacts" placeholder="Found contacts will appear here"> 
-      <p> Found contact ...</p>
-    </div>
+      <div id= "th"></div>
+      <div id= "box"></div>
+      <p id="foundContacts"> Found contacts will appear here</p> 
+      </div>
+      
+      <div class="container" id="editbox">
+      
+        <h3 class="text-center">
+                  Edit your contact:
+        </h3>
+
+          <label for="firstName"> <strong>First Name:</strong></label>
+          <input class="form-control firstnameinput" type="text" id="editFirstName">
+          
+                
+          <br>
+
+          <label for="lastName"> <strong>Last Name:</strong></label>
+          <input class="form-control lastnameinput" id="editLastName" type="text" >
+
+          <br>
+
+          <label for="email"> <strong>Email:</strong></label>
+          <input class="form-control emailinput" id="editEmail" type="text">
+
+          <br>
+
+          <label for="telephone"> <strong>Phone Number:</strong></label>
+          <input class="form-control phoneinput" id="editPhone" type="tel">
+
+          <br>
+          <div class="text-center">
+            <button type="button" class="btn btn-success createcontactbutton" onclick="updateContact()">Update Contact</button>
+            <button type="button" class="btn btn-danger cancelupdatebutton" onclick="hideEdit()">Close Editor</button>
+          </div>
+          <p id="contactEditResult"></p>
+      </div>
+      
+      
     <!-- Bottom text -->
     <div class="container bottomtextmain">
       <p>
