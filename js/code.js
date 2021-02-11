@@ -176,7 +176,7 @@ function doRegister()
 
 	// Format the payload and set up the connection.
 	var jsonPayload = '{"newUsername" : "' + login + '", "newPassword" : "' + password + '", "newPasswordConf" : "' + confirmPassword + '}';
-	var url = urlBase + '/Login.' + extension;
+	var url = urlBase + '/AddUser.' + extension;
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
