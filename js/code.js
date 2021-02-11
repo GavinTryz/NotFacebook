@@ -4,14 +4,14 @@ var extension = 'php';
 var userId = 0;
 var username = "";
 
-/*========================
-		FRONT PAGE
-========================*/
-
 // EXECUTED ON LOAD
 document.addEventListener("DOMContentLoaded", function() {
 	$("#register-box").hide();
 });
+
+/*========================
+		FRONT PAGE
+========================*/
 
 // CLEANSE INPUT
 $(function() {
@@ -116,7 +116,7 @@ function doLogin()
 	// Get username and password from HTML.
 	var login = document.getElementById("login-username").value;
 	var password = document.getElementById("login-password").value;
-	//password = md5(password);
+	password = md5(password);
 	
 	document.getElementById("login-error").innerHTML = "";
 
@@ -150,7 +150,59 @@ function doLogin()
 	{
 		document.getElementById("login-error").innerHTML = err.message;
 	}
+}
 
+function doRegister()
+{
+	userId = 0;
+	
+	// Get username and password from register fields.
+	var login = document.getElementById("register-username").value;
+	var password = document.getElementById("register-password").value;
+	var confirmPassword = document.getElementById("register-password-confirm").value;
+	var tempPass = password;
+	// Hash password for security.
+	password = md5(password);
+	confirmPassword = md5(confirmPassword);
+	
+	document.getElementById("register-error").innerHTML = "";
+
+	// Check matching passwords
+	if (password != confirmPassword)
+	{
+		document.getElementById("register-error").innerHTML = "Passwords do not match";
+		return;
+	}
+
+	// Format the payload and set up the connection.
+	var jsonPayload = '{"newUsername" : "' + login + '", "newPassword" : "' + password + '", "newPasswordConf" : "' + confirmPassword + '}';
+	var url = urlBase + '/Login.' + extension;
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, false);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+	try
+	{
+		// Send and recieve the payload.
+		xhr.send(jsonPayload);
+		var jsonObject = JSON.parse(xhr.responseText);
+
+		// Check for error.
+		if (jsonObject.error != "")
+		{
+			document.getElementById("login-error").innerHTML = jsonObject.error;
+			return;
+		}
+
+		// Set fields.
+		document.getElementById("login-username").innerHTML = login;
+		document.getElementById("login-password").innerHTML = tempPass;
+		doLogin();
+	}
+	catch(err)
+	{
+		document.getElementById("login-error").innerHTML = err.message;
+	}
 }
 
 function saveCookie()
