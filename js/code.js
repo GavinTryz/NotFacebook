@@ -175,7 +175,7 @@ function doRegister()
 	}
 
 	// Format the payload and set up the connection.
-	var jsonPayload = '{"newUsername" : "' + login + '", "newPassword" : "' + password + '", "newPasswordConf" : "' + confirmPassword + '"}';
+	var jsonPayload = '{ "newUsername" : "' + login + '", "newPassword" : "' + password + '", "newPasswordConf" : "' + confirmPassword + '" }';
 	var url = urlBase + '/AddUser.' + extension;
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, false);
@@ -195,6 +195,7 @@ function doRegister()
 		}
 
 		// Set fields.
+		loginForm();
 		document.getElementById("login-username").value = login;
 		document.getElementById("login-password").value = tempPass;
 		doLogin();
