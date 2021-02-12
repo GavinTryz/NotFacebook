@@ -36,26 +36,28 @@
                 </h3>
 
                 <label for="firstName"> <strong>First Name:</strong></label>
-                <input class="form-control firstnameinput" id="firstName" type="text" placeholder="Enter first name here">
+                  <input class="form-control firstnameinput" id="contactFirstName" type="text" placeholder="Enter first name here">
 
                 <br>
 
                 <label for="lastName"> <strong>Last Name:</strong></label>
-                <input class="form-control lastnameinput" id="lastName" type="text" placeholder="Enter last name here">
+                <input class="form-control lastnameinput" id="contactLastName" type="text" placeholder="Enter last name here">
 
                 <br>
 
                 <label for="email"> <strong>Email:</strong></label>
-                <input class="form-control emailinput" id="email" type="text" placeholder="Enter email here">
+                <input class="form-control emailinput" id="contactEmail" type="text" placeholder="Enter email here">
 
                 <br>
 
                 <label for="telephone"> <strong>Phone Number:</strong></label>
-                <input class="form-control phoneinput" id="phoneNumber" type="tel" placeholder="(555)-555-5555">
+                <input class="form-control phoneinput" id="contactPhone" type="text" placeholder="5555555555">
+                
+                <p id="contactAddResult"></p>
 
                 <br>
                 <div class="text-center">
-                  <button type="button" class="btn btn-success createcontactbutton" onclick="doCreateAcc()">Create Contact</button>
+                  <button type="button" class="btn btn-success createcontactbutton" onclick="addContact()">Create Contact</button>
                 </div>
               </div>
             </div>

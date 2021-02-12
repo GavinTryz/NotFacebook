@@ -89,7 +89,6 @@ body
 	border: 3px solid #000;	
 	padding: 20px;
 	background-color: #FFF;
-	border-radius: 15px;
 	max-height: 400px;
 	overflow-y: scroll;
 }
@@ -98,7 +97,9 @@ body
 {
 	border: 3px solid #000;
 	font-size: 24px;
+  margin-top: 50px;
 	max-width: 1200px;	
+  padding: 20px;
 }
 
 .firstnameinput
@@ -156,5 +157,80 @@ body
 	border-radius: 20px;
 	margin-top: 25px;
 	margin-right: -20px; 
+}
+
+table
+{
+  /*width: 100%;*/
+}
+
+td 
+{ 
+  text-align:left; 
+  /*border:1px solid black;*/ 
+  border-radius: 10px;
+  width: 1%;  
+}
+
+tr
+{
+  border-bottom: 2px solid #000;
+}
+
+.ctable
+{
+  border-collapse:separate; 
+  border-spacing:0 40px; 
+}
+
+.receivedbox
+{
+  font-size: 20px;
+  text-align:center;
+  font-weight: 550;
+}
+
+.tableheader
+{
+  font-size: 32px;
+}
+
+.editform
+{
+  /*display: none;*/
+}
+
+.receivedbox:hover + .editform
+{
+  display: block;
+}
+
+.numbering
+{
+  text-align: left;
+}
+
+#editbox
+{
+  background-color: #FFF;
+  border:1px solid black; 
+  border-radius: 20px;
+  margin-top:30px;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+.cancelupdatebutton
+{
+  border: 2px solid #000;	
+	border-radius: 20px;
+	font-size: 20px;
+	background-color: gray;
+}
+
+.logged
+{
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
