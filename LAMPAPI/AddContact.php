@@ -12,25 +12,28 @@
     {
         returnWithError("Contacts must have at least a first or last name");
     }
-
-    $conn = new mysqli("localhost", "API", "123NotPassword", "MASTER");
-    if($conn->connect_error)
-    {
-        returnWithError($conn->error);
-    }
     else
     {
-        $sql = "insert into CONTACTS (FIRSTNAME, LASTNAME, EMAIL, PHONE, USERID) VALUES ('$contactFirstName', '$contactLastName', '$contactEmail', '$contactPhone', '$userId')";
-        if($result = $conn->query($sql) != TRUE)
+        $conn = new mysqli("localhost", "API", "123NotPassword", "MASTER");
+        if($conn->connect_error)
         {
             returnWithError($conn->error);
         }
         else
         {
-            returnWithError(""); // Return with empty error, to signal contact addition successful
+            $sql = "insert into CONTACTS (FIRSTNAME, LASTNAME, EMAIL, PHONE, USERID) VALUES ('$contactFirstName', '$contactLastName', '$contactEmail', '$contactPhone', '$userId')";
+            if($result = $conn->query($sql) != TRUE)
+            {
+                returnWithError($conn->error);
+            }
+            else
+            {
+                returnWithError(""); // Return with empty error, to signal contact addition successful
+            }
         }
+        $conn->close();
     }
-    $conn->close();
+    
 
     function getRequestInfo()
 	{
