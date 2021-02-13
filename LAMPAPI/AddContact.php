@@ -8,6 +8,11 @@
     $contactEmail = $inData["contactEmail"];
     $contactPhone = $inData["contactPhone"];
 
+    if($contactFirstName = "" || $contactLastName == "")
+    {
+        returnWithError("Contacts must have at least a first or last name");
+    }
+
     $conn = new mysqli("localhost", "API", "123NotPassword", "MASTER");
     if($conn->connect_error)
     {

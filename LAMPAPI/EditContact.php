@@ -16,11 +16,22 @@
     }
     else
     {
-        $sql = "update CONTACTS set FIRSTNAME = '$contactFirstName', LASTNAME = '$contactLastName', EMAIL = '$contactEmail', PHONE = '$contactPhone' where (ID = '$contactId' and USERID = $userId)";
-
-        if($result = $conn->query($sql) != TRUE)
+        // Verify contact exists
+		$sql = "select * from CONTACTS where USERID = '$userId' and ID = '$contactId'";
+		$result = $conn->query($sql);
+		if($result->num_rows < 1)
+		{
+			returnWithError("Contact not found (UserID: $userId, ContactID: $contactId)");
+		}
+        else
         {
-            returnWithError($conn->error);
+            // Update contact
+            $sql = "update CONTACTS set FIRSTNAME = '$contactFirstName', LASTNAME = '$contactLastName', EMAIL = '$contactEmail', PHONE = '$contactPhone' where (ID = '$contactId' and USERID = $userId)";
+
+            if($result = $conn->query($sql) != TRUE)
+            {
+                returnWithError($conn->error);
+            }
         }
         $conn->close();
     }
