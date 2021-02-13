@@ -13,37 +13,53 @@
     {
         returnWithError("Contacts must have at least a first or last name");
     }
-
-    $conn = new mysqli("localhost", "API", "123NotPassword", "MASTER");
-    if($conn->connect_error)
+    else if(strlen($contactFirstName) > 30 || strlen($contactLastName) > 30)
     {
-        returnWithError($conn->error);
+        returnWithError("First and last names cannot be longer than 30 characters");
+    }
+    else if(strlen($contactEmail) > 320)
+    {
+        returnWithError("Email address cannot be longer than 320 characters");
+    }
+    else if(strlen($contactPhone) > 20)
+    {
+        returnWithError("Phone number cannot be longer than 20 characters");
     }
     else
     {
-        // Verify contact exists
-		$sql = "select * from CONTACTS where USERID = '$userId' and ID = '$contactId'";
-		$result = $conn->query($sql);
-		if($result->num_rows < 1)
-		{
-			returnWithError("Contact not found (UserID: $userId, ContactID: $contactId)");
-		}
+        $conn = new mysqli("localhost", "API", "123NotPassword", "MASTER");
+        if($conn->connect_error)
+        {
+            returnWithError($conn->error);
+        }
         else
         {
-            // Update contact
-            $sql = "update CONTACTS set FIRSTNAME = '$contactFirstName', LASTNAME = '$contactLastName', EMAIL = '$contactEmail', PHONE = '$contactPhone' where (ID = '$contactId' and USERID = $userId)";
-
-            if($result = $conn->query($sql) != TRUE)
+            // Verify contact exists
+            $sql = "select * from CONTACTS where USERID = '$userId' and ID = '$contactId'";
+            $result = $conn->query($sql);
+            if($result->num_rows < 1)
             {
-                returnWithError($conn->error);
+                returnWithError("Contact not found (UserID: $userId, ContactID: $contactId)");
             }
             else
             {
-                returnWithError(""); // Return with empty error, to signal contact edit successful
+                // Update contact
+                $sql = "update CONTACTS set FIRSTNAME = '$contactFirstName', LASTNAME = '$contactLastName', EMAIL = '$contactEmail', PHONE = '$contactPhone' where (ID = '$contactId' and USERID = $userId)";
+    
+                if($result = $conn->query($sql) != TRUE)
+                {
+                    returnWithError($conn->error);
+                }
+                else
+                {
+                    returnWithError(""); // Return with empty error, to signal contact edit successful
+                }
             }
+            $conn->close();
         }
-        $conn->close();
     }
+
+    
 
     function getRequestInfo()
 	{

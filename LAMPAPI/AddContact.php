@@ -12,6 +12,18 @@
     {
         returnWithError("Contacts must have at least a first or last name");
     }
+    else if(strlen($contactFirstName) > 30 || strlen($contactLastName) > 30)
+    {
+        returnWithError("First and last names cannot be longer than 30 characters");
+    }
+    else if(strlen($contactEmail) > 320)
+    {
+        returnWithError("Email address cannot be longer than 320 characters");
+    }
+    else if(strlen($contactPhone) > 20)
+    {
+        returnWithError("Phone number cannot be longer than 20 characters");
+    }
     else
     {
         $conn = new mysqli("localhost", "API", "123NotPassword", "MASTER");

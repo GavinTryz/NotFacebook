@@ -23,6 +23,14 @@
     {
         returnWithError("Passwords do not match");
     }
+    else if(strlen($newUsername) > 30)
+    {
+        returnWithError("Username cannot be greater than 30 characters");
+    }
+    else if(strlen($newPassword) > 50)
+    {
+        returnWithError("Password cannot be greater than 50 characters");
+    }
     else
     {
         $conn = new mysqli("localhost", "API", "123NotPassword", "MASTER");
