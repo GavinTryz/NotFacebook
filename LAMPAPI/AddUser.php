@@ -19,7 +19,7 @@
     {
         returnWithError("Please confirm your password");
     }
-    else if(!strcmp($newPassword, $newPasswordConf)) // Check if password and password confirmation match
+    else if($newPassword != $newPasswordConf) // Check if password and password confirmation match
     {
         returnWithError("Passwords do not match");
     }
