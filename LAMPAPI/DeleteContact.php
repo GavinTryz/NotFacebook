@@ -10,14 +10,28 @@
 	}
     else
     {
-        $sql = "delete from CONTACTS where USERID = '$userId' and ID = '$contactId'";
-        if($result = $conn->query($sql) != TRUE)
-        {
-            returnWithError($conn->error);
-        }
+		// Verify contact exists
+		$sql = "select * from CONTACTS where USERID = '$userId' and ID = '$contactId'";
+		$result = $conn->query($sql);
+		if($result->num_rows < 1)
+		{
+			returnWithError("Contact not found (UserID: $userId, ContactID: $contactId)");
+		}
+		else
+		{
+			// Delete contact
+			$sql = "delete from CONTACTS where USERID = '$userId' and ID = '$contactId'";
+			if($result = $conn->query($sql) != TRUE)
+			{
+				returnWithError($conn->error);
+			}
+			else
+			{
+				returnWithError(""); // Return with empty error, to signal contact deletion successful
+			}
+		}
         $conn->close();
     }
-    returnWithError("");
 
     function getRequestInfo()
 	{
