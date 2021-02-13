@@ -6,54 +6,54 @@
     $newPassword = $inData["newPassword"];
     $newPasswordConf = $inData["newPasswordConf"];
 
-    // Check for blank username
-    if($newUsername == "")
+    
+    if($newUsername == "") // Check for blank username
     {
         returnWithError("Please enter a username");
     }
-
-    // Check for blank password
-    if($newPassword == "")
+    else if($newPassword == "") // Check for blank password
     {
         returnWithError("Please enter a password");
     }
-
-    // Check for blank password confirmation
-    if($newPasswordConf == "")
+    else if($newPasswordConf == "") // Check for blank password confirmation
     {
         returnWithError("Please confirm your password");
     }
-
-    // Check if password and password confirmation match
-    if(!strcmp($newPassword, $newPasswordConf))
+    else if(!strcmp($newPassword, $newPasswordConf)) // Check if password and password confirmation match
     {
         returnWithError("Passwords do not match");
     }
-
-
-    $conn = new mysqli("localhost", "API", "123NotPassword", "MASTER");
-    if ($conn->connect_error) 
-	{
-		returnWithError( $conn->connect_error );
-	}
     else
     {
-        // Check if username already exists
-        $sql_u = "SELECT * FROM USERS WHERE username='$newUsername'";
-        if(mysqli_query($conn, $sql_u) > 0)
+        $conn = new mysqli("localhost", "API", "123NotPassword", "MASTER");
+        if ($conn->connect_error) 
         {
-            returnWithError("Username already taken");
+            returnWithError( $conn->connect_error );
         }
         else
         {
-            $sql = "insert into USERS(USERNAME, PASSWORD) values ('$newUsername','$newPassword')";
-            if ($result = $conn->query($sql) != TRUE) {
-                returnWithError($conn->error);
+            // Check if username already exists
+            $sql = "SELECT * FROM USERS WHERE USERNAME='$newUsername'";
+            $result = $conn->query($sql);
+            if($result->num_rows > 0)
+            {
+                returnWithError("Username already taken");
             }
+            else
+            {
+                $sql = "insert into USERS(USERNAME, PASSWORD) values ('$newUsername','$newPassword')";
+                if ($result = $conn->query($sql) != TRUE) {
+                    returnWithError($conn->error);
+                }
+                else
+                {
+                    returnWithError(""); // Return with empty error, to signal account creation successful
+                }
+            }
+            $conn->close();
         }
-        $conn->close();
     }
-    returnWithError(""); // Return with empty error, to signal account creation successful
+
 
     function getRequestInfo()
 	{

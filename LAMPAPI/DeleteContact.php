@@ -25,10 +25,13 @@
 			{
 				returnWithError($conn->error);
 			}
+			else
+			{
+				returnWithError(""); // Return with empty error, to signal contact deletion successful
+			}
 		}
         $conn->close();
     }
-    returnWithError("");
 
     function getRequestInfo()
 	{

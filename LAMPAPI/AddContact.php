@@ -25,9 +25,12 @@
         {
             returnWithError($conn->error);
         }
-        $conn->close();
+        else
+        {
+            returnWithError(""); // Return with empty error, to signal contact addition successful
+        }
     }
-    returnWithError(""); // Return with empty error, to signal contact addition successful
+    $conn->close();
 
     function getRequestInfo()
 	{

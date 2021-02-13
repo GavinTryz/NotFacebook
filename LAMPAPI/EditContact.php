@@ -37,10 +37,13 @@
             {
                 returnWithError($conn->error);
             }
+            else
+            {
+                returnWithError(""); // Return with empty error, to signal contact edit successful
+            }
         }
         $conn->close();
     }
-    returnWithError(""); // Return with empty error, to signal contact addition successful
 
     function getRequestInfo()
 	{
