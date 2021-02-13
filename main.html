@@ -57,7 +57,7 @@
       <p id="foundContacts"> Found contacts will appear here</p> 
       </div>
       
-      <div class="container" id="editbox">
+      <div class="container" id="editbox" class="modal">
       
         <h3 class="text-center">
                   Edit your contact:
@@ -91,20 +91,31 @@
       </div>
       
       
+      <div class="col mt-5">
+          <img src="media/startup.jpg" height="325px" class="startup">
+        </div>
+      
+      
     <!-- Bottom text -->
     <div class="container bottomtextmain">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        NotFacebook's contact manager allows you to quickly create, store, and find your contacts.
+        Built with reliable software, we take pride in user satisfaction. With your contacts organized, we hope to ease
+        an integral part of your life and business.
       </p>
     </div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script>
+    var input = document.getElementById("contactSearch");
+    input.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("contactSearchButton").click();
+      }
+    });
+    </script>
   </body>
 </html> 
 

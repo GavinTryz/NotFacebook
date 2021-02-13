@@ -307,6 +307,7 @@ function searchAccount()
 	}
 }
 
+
 function createTable(array) 
 {
     var table = document.createElement('table');
@@ -338,9 +339,9 @@ function createTable(array)
     
     var tableheader = "<table>";
     
-    tableheader += "<th class='tableheader'>" + "First Name" + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + "</th>";
-    tableheader += "<th class='tableheader'>" + "Last Name" + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + "</th>";
-    tableheader += "<th class='tableheader'>" + "Email" + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + "</th>";
+    tableheader += "<th class='tableheader'>" + "First Name" + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + "</th>";
+    tableheader += "<th class='tableheader'>" + "Last Name" + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + "</th>";
+    tableheader += "<th class='tableheader'>" + "Email" + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + "</th>";
     tableheader += "<th class='tableheader'>" + "Phone" + "</th>";
     
     tableheader += "</table>";
@@ -357,19 +358,19 @@ function createTable(array)
       {
         if (j == 0)
         {
-          html+= "<td>" + (i+1) + ")  " + array[i][j] + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + "</td>";
+          html+= "<td>" + (i+1) + ")  " + array[i][j] + "</td>";
         }
         if (j == 1)
         {
-          html+="<td>" + array[i][j] + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + "</td>";
+          html+="<td>" + array[i][j] + "</td>";
         }
         if (j == 2)
         {
-          html+="<td>" + array[i][j] + '&nbsp &nbsp &nbsp &nbsp &nbsp' + "</td>";
+          html+="<td>" + array[i][j] + "</td>";
         }
         if (j == 3)
         {
-          html+="<td>" + array[i][j] + '&nbsp &nbsp &nbsp' + "<input type='image' src='media/pencil.jpg' height='35px' class='editform' onclick='editContact(" + array[i][5] + ")';><input type='image' src='media/delete.jpg' height='35px' class='editform' onclick='deleteContact(" + array[i][5] + ")';></td>";
+          html+="<td>" + array[i][j] + '&nbsp &nbsp &nbsp' + "<input type='image' src='media/pencil.jpg' height='35px' class='editform' id='pencil' onclick='editContact(" + array[i][5] + ")';><input type='image' src='media/delete.jpg' height='35px' class='editform' id='trash' onclick='deleteContact(" + array[i][5] + ")';></td>";
         }
       }
       html+="</tr>";
