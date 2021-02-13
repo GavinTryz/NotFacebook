@@ -6,6 +6,24 @@
     $newPassword = $inData["newPassword"];
     $newPasswordConf = $inData["newPasswordConf"];
 
+    // Check for blank username
+    if($newUsername == "")
+    {
+        returnWithError("Please enter a username");
+    }
+
+    // Check for blank password
+    if($newPassword == "")
+    {
+        returnWithError("Please enter a password");
+    }
+
+    // Check for blank password confirmation
+    if($newPasswordConf == "")
+    {
+        returnWithError("Please confirm your password");
+    }
+
     // Check if password and password confirmation match
     if(!strcmp($newPassword, $newPasswordConf))
     {
