@@ -25,30 +25,28 @@
       </span>
     </div>
     <!-- Search for a contact -->
-    <div class="container"">
+    <div class="container">
       <div class="row">
         <div class = "col md-5">
           <div class="form-group pt-5 pb-5 mb-5">
             <label for="contactSearch">
-            <h3>Search:</h3>
+            <h3></h3>
             </label>
             <input type="contact" class="form-control searchbar" id="contactSearch" placeholder="Search for contact" name="searchVar">
           </div>
         </div>  
-        <div class="col">
+        <span class="col">
           <input type="image" id="contactSearchButton" src="media/glass.jpg" height="40px" class="glassImage" onclick="searchAccount()">
-        </div>
-        <div class="col-md-4">
-          <button type="button" class="btn btn-success buttonadd" onclick=window.location.href="addContact.html">Click here to add an account</button>
-        </div>
-        <div class="col-md-1">
-          <button type="button" class="btn btn-danger logout" onclick="doLogout()">log out</button> <!-- Make sure you cannot backspace-->
-        </div>
+        </span>
+          <button type="button" class="btn btn-success buttonadd" onclick=window.location.href="addContact.html">New Contact</button>
+        <span>
+          <button type="button" class="btn btn-danger logout" onclick="doLogout()">log out</button>
+        </span>
       </div>
     </div>
     <div class="container mt-4 receivedform">
       <label for="contactFound">
-        <h3>Found contacts:</h3>
+        <h3></h3>
     </label>
     </div>
     <div class="container received">
@@ -84,13 +82,11 @@
 
           <br>
           <div class="text-center">
-            <button type="button" class="btn btn-success createcontactbutton" onclick="updateContact()">Update Contact</button>
-            <button type="button" class="btn btn-danger cancelupdatebutton" onclick="hideEdit()">Close Editor</button>
+            <button type="button" class="btn btn-success createcontactbutton" onclick="updateContact()">Done</button>
+            <button type="button" class="btn btn-danger cancelupdatebutton" onclick="hideEdit()">Cancel</button>
           </div>
           <p id="contactEditResult"></p>
       </div>
-      
-      
       <div class="col mt-5">
           <img src="media/startup.jpg" height="325px" class="startup">
         </div>
