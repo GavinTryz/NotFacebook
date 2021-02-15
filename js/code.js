@@ -426,7 +426,7 @@ function updateContact()
   if (document.getElementById("editFirstName").value != "")
   {
     contactFirstName = document.getElementById("editFirstName").value;
-  }
+  }  
   if (document.getElementById("editLastName").value != "")
   {
     contactLastName = document.getElementById("editLastName").value;
@@ -440,6 +440,7 @@ function updateContact()
     contactPhone = document.getElementById("editPhone").value;
   }
 
+  document.getElementById("contactEditResult").innerHTML = "";
 
   var jsonPayload = '{"id" : "' + userId + '", "contactId" : "' + contactId + '", "contactFirstName" : "' + contactFirstName + '", "contactLastName" : "' + contactLastName + '", "contactEmail" : "' + contactEmail + '", "contactPhone" : "' + contactPhone + '"}';
 	var url = urlBase + '/EditContact.' + extension;
@@ -453,7 +454,17 @@ function updateContact()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("contactEditResult").innerHTML = "Contact has been Edited";
+        var jsonObject = JSON.parse(xhr.responseText);
+        
+				if (jsonObject.error == "")
+        {
+          searchAccount();
+          hideEdit();
+        }
+        else
+        {
+          document.getElementById("contactEditResult").innerHTML = jsonObject.error;
+        }
 			}
 		};
 		xhr.send(jsonPayload);
@@ -462,7 +473,6 @@ function updateContact()
 	{
 		document.getElementById("colorEditResult").innerHTML = err.message;
 	}
-  
 }
 
 function addContact()
@@ -535,7 +545,7 @@ function deleteContact(row)
   {
     var contactId = array[row][4];
   
-  	//document.getElementById("contactDeleteResult").innerHTML = "";
+ 	 //document.getElementById("contactDeleteResult").innerHTML = "";
   	
     var jsonPayload = '{"id" : "' + userId + '", "contactId" : ' + contactId + '}';
   	var url = urlBase + '/DeleteContact.' + extension;
