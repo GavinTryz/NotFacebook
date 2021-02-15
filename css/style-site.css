@@ -187,6 +187,7 @@ tr
   font-size: 20px;
   text-align:center;
   font-weight: 550;
+  word-break: break-word;
 }
 
 .tableheader
