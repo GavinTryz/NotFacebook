@@ -1,6 +1,7 @@
 body
 {
 	background-color: #00C2FF;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .not
@@ -26,6 +27,11 @@ body
 	background-color: #FFFFFF;
 	border-width: 3px !important;
 	border-color: #000000 !important;
+}
+
+.contactAdd
+{
+  text-align: center;
 }
 
 .contact
@@ -59,31 +65,27 @@ body
 
 .searchbar
 {
-	font-size: 24px;
-	border-color: #000000;
-	border-width: 2px;
-	border-radius: 20px;
+	text-align: center;
+	color: #000000;
+	font-size: 20px;
+	padding: 12px;
+	margin: 12px 0px;
+	border-radius: 5px;
+	border: 1px solid #000000;
   width: 975px;
-  margin-top: 15px;
-}
-
-.asdasd
-{
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  margin-top: 35px;
 }
 
 .buttonadd
 {
-	border-width: 3px !important;
+	color: #FFFFFF;
 	background-color: #20B525;
-	font-size: 25px;
-	margin-top: 80px;
-	border-radius: 20px;
-  box-shadow: 10px 8px 10pt 2pt rgba(0,0,0,0.4);
+	font-weight: bold;
+	font-size: 20px;
+	padding: 10px;
+	margin: 12px 0px;
+	border-radius: 5px;
+	border: 1px solid #000000;
   display: inline;
   white-space: nowrap;
   margin: auto;
@@ -98,7 +100,7 @@ body
 
 .glassImage
 {
-	margin-top: 95px;
+	margin-top: 115px;
 	border: 3px solid #000;
   border-radius: 5px;
 }
@@ -110,6 +112,7 @@ body
 	background-color: #FFF;
 	max-height: 400px;
 	overflow-y: scroll;
+  margin-top:-110px;
 }
 
 .receivedbox
@@ -123,50 +126,117 @@ body
 
 .firstnameinput
 {
-	border-radius: 20px;
-	border: 1px solid #000;
+	text-align: center;
+	color: #000000;
+	font-size: 20px;
+	padding: 12px;
+	margin: 12px 0px;
+	border-radius: 5px;
+	border: 1px solid #000000;
 }
 
 .lastnameinput
 {
-	border-radius: 20px;
-	border: 1px solid #000;
+	text-align: center;
+	color: #000000;
+	font-size: 20px;
+	padding: 12px;
+	margin: 12px 0px;
+	border-radius: 5px;
+	border: 1px solid #000000;
 }
 
 .emailinput
 {
-	border-radius: 20px;
-	border: 1px solid #000;
+	text-align: center;
+	color: #000000;
+	font-size: 20px;
+	padding: 12px;
+	margin: 12px 0px;
+	border-radius: 5px;
+	border: 1px solid #000000;
 }
 
 .phoneinput
 {
-	border-radius: 20px;
-	border: 1px solid #000;
+	text-align: center;
+	color: #000000;
+	font-size: 20px;
+	padding: 12px;
+	margin: 12px 0px;
+	border-radius: 5px;
+	border: 1px solid #000000;
+}
+
+.firstnameinputupdate
+{
+	color: #000000;
+	font-size: 15px;
+	padding: 12px;
+	margin: 12px 0px;
+	border-radius: 5px;
+	border: 1px solid #000000;
+}
+
+.lastnameinputupdate
+{
+	color: #000000;
+	font-size: 15px;
+	padding: 12px;
+	margin: 12px 0px;
+	border-radius: 5px;
+	border: 1px solid #000000;
+}
+
+.emailinputupdate
+{
+	color: #000000;
+	font-size: 15px;
+	padding: 12px;
+	margin: 12px 0px;
+	border-radius: 5px;
+	border: 1px solid #000000;
+}
+
+.phoneinputupdate
+{
+	color: #000000;
+	font-size: 15px;
+	padding: 12px;
+	margin: 12px 0px;
+	border-radius: 5px;
+	border: 1px solid #000000;
 }
 
 .addimage
 {
 	border-radius: 20px;
-	border: 2px solid #000;	
+	border: 2px solid #000;
+  margin-top: 60px;	
 }
 
 .backtomain
 {
+	color: #FFFFFF;
+	font-weight: bold;
 	font-size: 20px;
-	border: 2px solid #000;	
-	border-radius: 20px;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding: 5px;
+	margin: 12px 0px;
+	border-radius: 5px;
+	border: 1px solid #000000;
 	background-color: grey;
 }
 
 .createcontactbutton
 {
-	border: 2px solid #000;	
-	border-radius: 20px;
-	font-size: 20px;
+	color: #FFFFFF;
 	background-color: #20B525;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 5px;
+	margin: 12px 0px;
+	border-radius: 5px;
+	border: 1px solid #000000;
 }
 
 .logout
@@ -233,7 +303,6 @@ tr
   border-radius: 20px;
   margin-top:30px;
   padding-top:10px;
-  padding-bottom:10px;
   -webkit-animation-name: zoom;
   -webkit-animation-duration: 0.6s;
   animation-name: zoom;
@@ -253,10 +322,14 @@ tr
 
 .cancelupdatebutton
 {
-  border: 2px solid #000;	
-	border-radius: 20px;
+  color: #FFFFFF;
+	font-weight: bold;
 	font-size: 20px;
-	background-color: gray;
+	padding: 5px;
+	margin: 10px 0px;
+	border-radius: 5px;
+	border: 1px solid #000000;
+	background-color: grey;
   transition: 0.3s;
 }
 
