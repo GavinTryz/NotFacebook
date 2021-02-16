@@ -368,7 +368,7 @@ function createTable(array)
         }
         if (j == 3)
         {
-          html+="<td>" + array[i][j] + '&nbsp &nbsp &nbsp' + "<input type='image' src='media/pencil.jpg' height='35px' class='editform' id='pencil' onclick='editContact(" + array[i][5] + ")';><input type='image' src='media/delete.jpg' height='35px' class='editform' id='trash' onclick='deleteContact(" + array[i][5] + ")';></td>";
+          html+="<td>" + array[i][j] + '&nbsp &nbsp &nbsp' + "<input type='image' src='media/pencil.png' height='35px' class='editform' id='pencil' onclick='editContact(" + array[i][5] + ")';><input type='image' src='media/delete.png' height='35px' class='editform' id='trash' onclick='deleteContact(" + array[i][5] + ")';></td>";
         }
       }
       html+="</tr>";
