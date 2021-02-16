@@ -559,6 +559,7 @@ function deleteContact(row)
   		{
   			if (this.readyState == 4 && this.status == 200) 
   			{
+				searchAccount();
   				//document.getElementById("contactDeleteResult").innerHTML = "Contact has been Deleted";
   			}
   		};
