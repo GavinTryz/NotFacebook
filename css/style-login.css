@@ -47,7 +47,8 @@ img
 	padding: 12px;
 	margin: 12px 0px;
 	border-radius: 5px;
-	border: 1px solid var(--secondary-color);
+	background-color: #EAEAEA;
+	border: 0px solid var(--secondary-color);
 }
 
 /*==========================
@@ -56,6 +57,7 @@ img
 
 .name
 {
+	font-weight: bold;
 	font-size: 48px;
 	text-align: center;
 	margin: 12px 0px 28px 0px;
@@ -69,6 +71,11 @@ img
 .name-facebook
 {
 	color: var(--primary-color);
+}
+
+.name-normal
+{
+	font-weight: normal;
 }
 
 /*==========================
@@ -121,7 +128,7 @@ img
 	padding: 12px;
 	margin: 12px 0px;
 	border-radius: 5px;
-	border: 1px solid var(--secondary-color);
+	border: 0px solid var(--secondary-color);
 }
 
 #login-register
@@ -133,7 +140,7 @@ img
 	padding: 28px;
 	margin: 12px 0px;
 	border-radius: 5px;
-	border: 1px solid var(--secondary-color);
+	border: 0px solid var(--secondary-color);
 }
 
 /*==========================
@@ -160,7 +167,7 @@ img
 	padding: 28px;
 	margin: 12px 0px;
 	border-radius: 5px;
-	border: 1px solid var(--secondary-color);
+	border: 0px solid var(--secondary-color);
 }
 
 /*==========================
@@ -188,7 +195,7 @@ img
 	animation: fadein 3s;
 }
 
-#testimonial-description
+.testimonial-description
 {
 	font-size: 20px;
 	padding: 10px;
@@ -203,7 +210,8 @@ img
 
 #testimonial-img
 {
-	box-shadow: 0 0 3pt 2pt var(--primary-color);
+	/*box-shadow: 0 0 3pt 2pt var(--primary-color);*/
+	box-shadow: 10px 8px 10pt 2pt rgba(0,0,0,0.4);
 	margin: 10px 0px 10px 0px;
 	border-radius: 20px;
 
