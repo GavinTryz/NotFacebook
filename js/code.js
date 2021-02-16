@@ -1,18 +1,16 @@
-var urlBase = 'http://157.245.248.114/LAMPAPI';
+var urlBase = 'http://f4c3b00k.xyz/LAMPAPI';
 var extension = 'php';
 
 var userId = 0;
 var username = "";
 
-
 var currentEditContactId = "";
-
-
 var array = new Array();
 
 /*========================
 		FRONT PAGE
 ========================*/
+
 // EXECUTED ON LOAD
 document.addEventListener("DOMContentLoaded", function() {
 	$("#register-box").hide();
@@ -195,7 +193,7 @@ function doRegister()
 		// Check for error.
 		if (jsonObject.error != "")
 		{
-			document.getElementById("login-error").innerHTML = jsonObject.error;
+			document.getElementById("register-error").innerHTML = jsonObject.error;
 			return;
 		}
 
@@ -206,7 +204,7 @@ function doRegister()
 	}
 	catch(err)
 	{
-		document.getElementById("login-error").innerHTML = err.message;
+		document.getElementById("register-error").innerHTML = err.message;
 	}
 }
 
@@ -370,7 +368,7 @@ function createTable(array)
         }
         if (j == 3)
         {
-          html+="<td>" + array[i][j] + '&nbsp &nbsp &nbsp' + "<input type='image' src='media/pencil.jpg' height='35px' class='editform' id='pencil' onclick='editContact(" + array[i][5] + ")';><input type='image' src='media/delete.jpg' height='35px' class='editform' id='trash' onclick='deleteContact(" + array[i][5] + ")';></td>";
+          html+="<td>" + array[i][j] + '&nbsp &nbsp &nbsp' + "<input type='image' src='media/pencil.png' height='35px' class='editform' id='pencil' onclick='editContact(" + array[i][5] + ")';><input type='image' src='media/delete.png' height='35px' class='editform' id='trash' onclick='deleteContact(" + array[i][5] + ")';></td>";
         }
       }
       html+="</tr>";
@@ -593,7 +591,6 @@ function readCookie()
 	userId = -1;
 	var data = document.cookie;
 	var splits = data.split(",");
- 
 
 	for(var i = 0; i < splits.length; i++) 
 	{
